@@ -28,7 +28,7 @@
 
     <groupId>com.telesign.receiver</groupId>
     <artifactId>spark-rabbitmq</artifactId>
-    <version>0.1.0-ts</version>
+    <version>0.1.0</version>
     <packaging>pom</packaging>
 
 
