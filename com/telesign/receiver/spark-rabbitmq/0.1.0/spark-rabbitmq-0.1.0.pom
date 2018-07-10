@@ -20,11 +20,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.stratio</groupId>
-        <artifactId>parent</artifactId>
-        <version>0.9.0</version>
-    </parent>
+    
 
     <groupId>com.telesign.receiver</groupId>
     <artifactId>spark-rabbitmq</artifactId>
@@ -32,38 +28,6 @@
 
 
 
-    <url>https://github.com/jokasb/spark-rabbitmq</url>
-    <name>Spark Streaming RabbitMQ Receiver</name>
-
-    <description>
-        RabbitMQ-Receiver is a library that allows the user to read data with Apache Spark from RabbitMQ.
-    </description>
-
-    <scm>
-        <url>https://github.com/jokas/spark-rabbitmq.git</url>
-        <connection>scm:git:git://github.com/jokasb/spark-rabbitmq.git</connection>
-        <developerConnection>scm:git:git@github.com:jokasb/spark-rabbitmq.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>jb</id>
-            <name>Jose Carlos Garcia</name>
-            <email>jcgarcia@stratio.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>dj</id>
-            <name>Germán Schiavón</name>
-            <email>gschiavon@stratio.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>        
-    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -144,124 +108,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.8</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/alternateLocation</outputDirectory>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>false</overWriteSnapshots>
-                            <overWriteIfNewer>true</overWriteIfNewer>
-                            <excludeArtifactIds>::*</excludeArtifactIds>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <configuration>
-                    <reuseForks>false</reuseForks>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>org/apache/spark/streaming/rabbitmq/**</include>
-                    </includes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.mycila</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/README</exclude>
-                        <exclude>**/src/test/resources/**</exclude>
-                        <exclude>**/src/main/resources/**</exclude>
-                        <exclude>**/*.csv</exclude>
-                        <exclude>**/*.json</exclude>
-                        <exclude>**/*.conf</exclude>
-                        <exclude>**/*.txt</exclude>
-                        <exclude>**/*.properties</exclude>
-                        <exclude>**/jetty*</exclude>
-                        <exclude>**/node*/**</exclude>
-                        <exclude>**/.tmp/**</exclude>
-                        <exclude>**/*.scss</exclude>
-                        <exclude>**/*.woff</exclude>
-                        <exclude>**/*.woff2</exclude>
-                        <exclude>**/*.ttf</exclude>
-                        <exclude>**/*.svg</exclude>
-                        <exclude>**/*.eot</exclude>
-                        <exclude>**/*.otf</exclude>
-                        <exclude>**/*.htaccess</exclude>
-                        <exclude>**/*.jshintrc</exclude>
-                        <exclude>**/*.html</exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <phase>validate</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    
 </project>
